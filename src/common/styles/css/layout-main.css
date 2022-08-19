@@ -1,3 +1,41 @@
 @import '../css/fonts.css';
+:root {
+  --header-height: 5vh;
+  --footer-height: 8vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body #mainLayout {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body #mainLayout > header {
+  position: fixed;
+  border: 1px solid greenyellow;
+  width: 100%;
+  height: var(--header-height);
+  top: 0;
+  left: 0;
+}
+body #mainLayout > main {
+  margin-top: var(--header-height);
+  border: 1px solid cyan;
+}
+body #mainLayout > main .wrap {
+  width: 50vw;
+  height: 50vh;
+}
+body #mainLayout > footer {
+  border: 1px solid pink;
+  height: var(--footer-height);
+  position: relative;
+  bottom: 0;
+}
 
 /*# sourceMappingURL=layout-main.css.map */
