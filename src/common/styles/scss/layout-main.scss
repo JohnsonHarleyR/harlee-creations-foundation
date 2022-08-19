@@ -31,7 +31,7 @@ body {
 
     > main {
       margin-top: var(--header-height);
-      // height: calc(100vh - var(--header-height) - var(--footer-height));
+      height: calc(100vh - var(--header-height) - var(--footer-height));
       border: 1px solid cyan;
       .wrap {
         width: 50vw;

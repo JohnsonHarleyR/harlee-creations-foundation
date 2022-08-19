@@ -25,6 +25,7 @@ body #mainLayout > header {
 }
 body #mainLayout > main {
   margin-top: var(--header-height);
+  height: calc(100vh - var(--header-height) - var(--footer-height));
   border: 1px solid cyan;
 }
 body #mainLayout > main .wrap {
