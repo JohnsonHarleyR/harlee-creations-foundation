@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import Wrap from '../../layout/Wrap';
 
-const ComingSoon = ({}) => {
+const ComingSoon = ({pageName}) => {
   
   return (
     <Wrap>
       <h1>Coming Soon!</h1>
+      <i>{pageName}</i>
     </Wrap>
   );
 }
