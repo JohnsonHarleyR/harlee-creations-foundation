@@ -2,9 +2,21 @@
 
 :root {
 
+  --nav-item-font: 'courier new';
+  --nav-item-font-size: 5ch;
+  --nav-item-color: 'red';
+  --nav-item-padding-left: .5ch;
 
   --header-height: 5vh;
   --footer-height: 8vh;
+  --header-logo-shrink: 4vh;
+
+  --logo-corner-height: var(--header-height);
+  --logo-corner-width: calc(607 * var(--logo-corner-height) / 227 - var(--header-logo-shrink));
+  --header-x-margin: 4ch;
+
+  --bg-primary-color: #000;
+  --bg-secondary-color: #000;
 }
 
 html, body {
@@ -13,6 +25,7 @@ html, body {
 }
 
 body {
+  background-color: var(--bg-primary-color);
 
   .main-layout {
     width: 100%;
@@ -21,7 +34,7 @@ body {
     padding: 0;
 
     &.no-header {
-      > header {
+      > .header {
         display: none;
       }
 
@@ -31,13 +44,38 @@ body {
       }
     }
 
-    > header {
+    > .header {
       position: fixed;
-      border: 1px solid greenyellow;
       width: 100%;
       height: var(--header-height);
       top: 0;
       left: 0;
+
+      .logo-image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+
+      .nav.desktop {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: var(--header-x-margin);
+
+        .nav-item {
+
+          .nav-item-text {
+            font-family: var(--nav-item-font);
+            font-size: var(--nav-item-font-size);
+            color: var(--nav-item-color);
+            text-transform: capitalize;
+            padding-left: var(--nav-item-padding-left);
+          }
+
+        }
+      }
     }
 
     > main {
@@ -57,6 +95,24 @@ body {
       position: relative;
       bottom: 0;
     }
+
+  }
+
+  .logo-container.corner {
+    width: var(--logo-corner-width);
+    height: var(--logo-corner-height);
+    margin-left: var(--header-x-margin);
+
+    // svg>g.head {
+    //   fill: var(--logo-head-txt-color);
+    // }
+
+    .logo-image.corner {
+      width: var(--logo-corner-width);
+      height: var(--logo-corner-height);
+      margin-left: var(--header-x-margin);
+    }
+
 
   }
 

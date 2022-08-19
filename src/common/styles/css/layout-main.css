@@ -1,7 +1,17 @@
 @import '../css/fonts.css';
 :root {
+  --nav-item-font: "courier new";
+  --nav-item-font-size: 5ch;
+  --nav-item-color: "red";
+  --nav-item-padding-left: .5ch;
   --header-height: 5vh;
   --footer-height: 8vh;
+  --header-logo-shrink: 4vh;
+  --logo-corner-height: var(--header-height);
+  --logo-corner-width: calc(607 * var(--logo-corner-height) / 227 - var(--header-logo-shrink));
+  --header-x-margin: 4ch;
+  --bg-primary-color: #000;
+  --bg-secondary-color: #000;
 }
 
 html, body {
@@ -9,26 +19,47 @@ html, body {
   padding: 0;
 }
 
+body {
+  background-color: var(--bg-primary-color);
+}
 body .main-layout {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
 }
-body .main-layout.no-header > header {
+body .main-layout.no-header > .header {
   display: none;
 }
 body .main-layout.no-header > main {
   margin-top: 0;
   height: calc(100vh - var(--footer-height));
 }
-body .main-layout > header {
+body .main-layout > .header {
   position: fixed;
-  border: 1px solid greenyellow;
   width: 100%;
   height: var(--header-height);
   top: 0;
   left: 0;
+}
+body .main-layout > .header .logo-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+body .main-layout > .header .nav.desktop {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: var(--header-x-margin);
+}
+body .main-layout > .header .nav.desktop .nav-item .nav-item-text {
+  font-family: var(--nav-item-font);
+  font-size: var(--nav-item-font-size);
+  color: var(--nav-item-color);
+  text-transform: capitalize;
+  padding-left: var(--nav-item-padding-left);
 }
 body .main-layout > main {
   margin-top: var(--header-height);
@@ -44,6 +75,16 @@ body .main-layout > footer {
   height: var(--footer-height);
   position: relative;
   bottom: 0;
+}
+body .logo-container.corner {
+  width: var(--logo-corner-width);
+  height: var(--logo-corner-height);
+  margin-left: var(--header-x-margin);
+}
+body .logo-container.corner .logo-image.corner {
+  width: var(--logo-corner-width);
+  height: var(--logo-corner-height);
+  margin-left: var(--header-x-margin);
 }
 
 /*# sourceMappingURL=layout-main.css.map */

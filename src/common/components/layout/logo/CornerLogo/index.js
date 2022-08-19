@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 
 const CornerLogo = ({textColor, iconColor}) => {
 
   return (
-    <Link to="/">
       <div className="logo-container corner">
         {/* Text image */}
         <svg version="1.0" className='logo-image corner text'
@@ -180,7 +179,6 @@ const CornerLogo = ({textColor, iconColor}) => {
             </svg>
 
       </div>
-    </Link>
   );
 
 }

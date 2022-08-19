@@ -24,6 +24,25 @@ export const ThemePropName = {
   '--secondary-400': 'secondary400',
   '--secondary-500': 'secondary500',
 
+  '--font-color-1': 'fontColor1',
+  '--font-color-2': 'fontColor2',
+  '--font-color-3': 'fontColor3',
+
+  '--font-family-1': 'fontFamily1',
+  '--font-family-2': 'fontFamily1',
+  '--font-family-3': 'fontFamily1',
+
+  '--header-height': 'headerHeight',
+  '--footer-height': 'footerHeight',
+
+  '--header-logo-shrink': 'headerLogoShrink',
+  '--header-x-margin': 'headerXMargin',
+
+  '--nav-item-font': 'navItemFont',
+  '--nav-item-font-size': 'navItemFontSize',
+  '--nav-item-color': 'navItemColor',
+  '--nav-item-padding-left': 'navItemPaddingLeft',
+
   '--bg-header-color': 'bgHeaderColor',
   '--bg-primary-color': 'bgPrimaryColor',
   '--bg-secondary-color': 'bgSecondaryColor',

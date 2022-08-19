@@ -3,10 +3,12 @@ import '../../../styles/css/layout-main.css';
 import { connect } from 'react-redux';
 import { implementTheme } from '../theme/helpers/theme-helper';
 import { setThemeProperties } from './redux/thunks';
+import Header from '../Header';
 import CornerLogo from '../logo/CornerLogo';
 
 const MainLayout = ({
   children,
+  theme,
   themeName,
   className,
   setThemeProperties,
@@ -20,17 +22,20 @@ const MainLayout = ({
 
   return (
     <div className={className}>
-      <header>test</header>
+      <Header>test</Header>
       <main>
         {children}
       </main>
-      <footer></footer>
+      <footer>
+    
+      </footer>
     </div>
   );
 }
 
 const mapStateToProps = ({layout}) => {
   return {
+    theme: layout.theme,
     themeName: layout.themeName,
     className: layout.layoutClass,
   };
