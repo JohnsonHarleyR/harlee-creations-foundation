@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 
 const MainLayout = ({
   children,
+  className
 }) => {
 
   return (
-    <div id="mainLayout">
+    <div className={className}>
       <header>test</header>
       <main>
         {children}
@@ -16,9 +17,9 @@ const MainLayout = ({
   );
 }
 
-const mapStateToProps = ({}) => {
+const mapStateToProps = ({layout}) => {
   return {
-
+    className: layout.layoutClass,
   };
 }
 
