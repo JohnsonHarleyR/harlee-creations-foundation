@@ -265,8 +265,8 @@ const MainLogo = ({
 
 const mapStateToProps = ({layout}) => {
   return {
-    textColor: layout.mainLogoTextColor,
-    iconColor: layout.mainLogoIconColor,
+    textColor: layout.theme.mainLogoTextColor,
+    iconColor: layout.theme.mainLogoIconColor,
   };
 }
 

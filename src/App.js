@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import ComingSoon from './common/components/pages/ComingSoon';
 import Admin from "./pages/admin/Admin";
+import LayoutAssist from "./pages/admin/LayoutAssist";
 
 function App() {
 
@@ -25,6 +26,15 @@ function App() {
             </Admin>
           }
         />
+        <Route 
+          path="/admin/layout-assist"
+          element={
+            <Admin navigateToHome={navigateToHome}>
+              <LayoutAssist />
+            </Admin>
+          }
+        />
+
       </Routes>
   );
 }

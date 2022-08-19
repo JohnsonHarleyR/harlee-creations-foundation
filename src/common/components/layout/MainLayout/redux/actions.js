@@ -7,6 +7,13 @@ const changeTheme = (themeName) => {
   };
 }
 
+const changeThemeProperties = (properties) => {
+  return {
+    type: TYPES.CHANGE_THEME_PROPERTIES,
+    properties: properties,
+  };
+}
+
 const setCornerLogoValues = (textColor, iconColor) => {
   return {
     type: TYPES.SET_CORNER_LOGO_VALUES,
@@ -25,6 +32,7 @@ const setMainLogoValues = (textColor, iconColor) => {
 
 export default {
   changeTheme,
+  changeThemeProperties,
   setCornerLogoValues,
   setMainLogoValues,
 }

@@ -188,8 +188,8 @@ const CornerLogo = ({textColor, iconColor}) => {
 
 const mapStateToProps = ({layout}) => {
   return {
-    textColor: layout.cornerLogoTextColor,
-    iconColor: layout.cornerLogoIconColor,
+    textColor: layout.theme.cornerLogoTextColor,
+    iconColor: layout.theme.cornerLogoIconColor,
   };
 }
 

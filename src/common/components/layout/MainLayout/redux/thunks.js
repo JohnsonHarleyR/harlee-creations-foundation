@@ -1,5 +1,17 @@
 import actions from "./actions";
 
+export const changeMainTheme = (themeName) => async (
+  dispatch,
+) => {
+  dispatch(actions.changeTheme(themeName));
+}
+
+export const setThemeProperties = (properties) => async (
+  dispatch,
+) => {
+  dispatch(actions.changeThemeProperties(properties));
+}
+
 export const setCornerLogoColors = (textColor, iconColor) => async (
   dispatch,
 ) => {
@@ -13,6 +25,8 @@ export const setMainLogoColors = (textColor, iconColor) => async (
 }
 
 export default {
+  changeMainTheme,
+  setThemeProperties,
   setCornerLogoColors,
   setMainLogoColors,
 };

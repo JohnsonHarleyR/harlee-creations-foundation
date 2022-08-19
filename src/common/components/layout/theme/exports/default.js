@@ -1,12 +1,11 @@
 import { ThemeName } from "../../../../constants/theme";
 
 const DefaultTheme = {
-  name: ThemeName.DEFAULT,
   logoProps: {
-    headLogoTextColor: '--primary-100',
-    headLogoIconColor: '--secondary-300',
-    bodyLogoTextColor: '--secondary-100',
-    bodyLogoIconColor: '--primary-300',
+    cornerLogoTextColor: '--primary-100',
+    cornerLogoIconColor: '--secondary-300',
+    mainLogoTextColor: '--secondary-100',
+    mainLogoIconColor: '--primary-300',
   },
   cssProps: {
     '--primary-100': '#F4F8F9',

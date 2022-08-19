@@ -1,15 +1,13 @@
 import TYPES from './types';
-import { ClassForLayoutCondition } from "../../../../constants/main-layout";
 import { ThemeName } from "../../../../constants/theme";
+import { ClassForLayoutCondition } from "../../../../constants/main-layout";
+
 
 const initialState = {
   layoutClass: ClassForLayoutCondition.DEFAULT,
   
   themeName: ThemeName.DEFAULT,
-  cornerLogoTextColor: '#000000',
-  cornerLogoIconColor: '#000000',
-  mainLogoTextColor: '#000000',
-  mainLogoIconColor: '#000000',
+  theme: {},
 };
 
 const layoutReducer = (state = initialState, action) => {
@@ -18,6 +16,11 @@ const layoutReducer = (state = initialState, action) => {
       return {
         ...state,
         themeName: action.value,
+      };
+    case TYPES.CHANGE_THEME_PROPERTIES:
+      return {
+        ...state,
+        theme: action.properties,
       };
     case TYPES.SET_CORNER_LOGO_VALUES:
       return {

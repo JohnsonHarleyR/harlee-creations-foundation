@@ -2,17 +2,19 @@ import { useEffect } from 'react';
 import '../../../styles/css/layout-main.css';
 import { connect } from 'react-redux';
 import { implementTheme } from '../theme/helpers/theme-helper';
+import { setThemeProperties } from './redux/thunks';
 import CornerLogo from '../logo/CornerLogo';
 
 const MainLayout = ({
   children,
   themeName,
-  className
+  className,
+  setThemeProperties,
 }) => {
 
   useEffect(() => {
     if (themeName) {
-      implementTheme(themeName);
+      implementTheme(themeName, setThemeProperties);
     }
   }, [themeName]);
 
@@ -35,7 +37,7 @@ const mapStateToProps = ({layout}) => {
 }
 
 const mapDispatchToProps = {
-
+  setThemeProperties,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);

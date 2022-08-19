@@ -1,20 +1,16 @@
 import DefaultTheme from '../exports/default';
-import { ThemeName } from '../../../../constants/theme';
+import { ThemeInfo, ThemePropName } from '../../../../constants/theme';
 import { setCornerLogoColors, setMainLogoColors } from '../../MainLayout/redux/thunks';
 
 
 //#region Private Methods
 
 const getThemeByName = (themeName) => {
-  switch(themeName) {
-    default:
-    case ThemeName.DEFAULT:
-      return DefaultTheme;
-  }
+  return ThemeInfo[themeName];
 }
 
 const isVariableName = (value) => {
-  if (value.length > 2 && value.substring(0, 1) === '--') {
+  if (value.length > 2 && value.substring(0, 2) === '--') {
     return true;
   }
   return false;
@@ -31,9 +27,10 @@ const getDefaultValueForProperty = (propertyName, isCss = true) => {
 
 //#region Exports
 
-export const implementTheme = (themeName) => {
+export const implementTheme = (themeName, changeProperties) => {
   // TODO: use redux to set logo colors
   let theme = getThemeByName(themeName);
+  let themeProps = {};
 
   let cssProps = theme.cssProps;
   for (const prop in cssProps) {
@@ -52,13 +49,19 @@ export const implementTheme = (themeName) => {
     // set the property - this should change css values in the main layout
     if (value !== undefined) {
       document.documentElement.style.setProperty(prop, value);
+
+      // also set themeProps to change the state for Material UI
+      let newPropName = ThemePropName[prop];
+      if (newPropName !== undefined) {
+        themeProps[newPropName] = value;
+      }
     }
+
   }
 
   // do logo props too
   
   let logoProps = theme.logoProps;
-  let logoObj = {};
   for (const prop in logoProps) {
     let value = logoProps[prop] !== null
     ? logoProps[prop]
@@ -69,12 +72,11 @@ export const implementTheme = (themeName) => {
       : cssProps[value];
 
     // set the property - this should change css values in the main layout
-    logoObj[prop] = value;
+    themeProps[prop] = value;
   }
 
-  // set those values
-  setCornerLogoColors(logoObj.cornerLogoTextColor, logoObj.headLogoIconColor);
-  setMainLogoColors(logoObj.bodyLogoTextColor, logoObj.bodyLogoIconColor);
+  // set the properties in the state
+  changeProperties(themeProps);
 }
 
 //#endregion
