@@ -1,10 +1,20 @@
+import { useEffect } from 'react';
 import '../../../styles/css/layout-main.css';
 import { connect } from 'react-redux';
+import { implementTheme } from '../theme/helpers/theme-helper';
+import CornerLogo from '../logo/CornerLogo';
 
 const MainLayout = ({
   children,
+  themeName,
   className
 }) => {
+
+  useEffect(() => {
+    if (themeName) {
+      implementTheme(themeName);
+    }
+  }, [themeName]);
 
   return (
     <div className={className}>
@@ -19,6 +29,7 @@ const MainLayout = ({
 
 const mapStateToProps = ({layout}) => {
   return {
+    themeName: layout.themeName,
     className: layout.layoutClass,
   };
 }
