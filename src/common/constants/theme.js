@@ -36,7 +36,8 @@ export const ThemePropName = {
   '--footer-height': 'footerHeight',
 
   '--header-logo-shrink': 'headerLogoShrink',
-  '--header-x-margin': 'headerXMargin',
+  '--header-left-margin': 'headerLeftMargin',
+  '--header-right-margin': 'headerRightMargin',
 
   '--nav-item-font': 'navItemFont',
   '--nav-item-font-size': 'navItemFontSize',

@@ -9,7 +9,8 @@
   --header-logo-shrink: 4vh;
   --logo-corner-height: var(--header-height);
   --logo-corner-width: calc(607 * var(--logo-corner-height) / 227 - var(--header-logo-shrink));
-  --header-x-margin: 4ch;
+  --header-left-margin: 4ch;
+  --header-right-margin: 4ch;
   --bg-primary-color: #000;
   --bg-secondary-color: #000;
 }
@@ -27,6 +28,7 @@ body .main-layout {
   height: 100%;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 body .main-layout.no-header > .header {
   display: none;
@@ -52,7 +54,7 @@ body .main-layout > .header .logo-image {
 body .main-layout > .header .nav.desktop {
   display: flex;
   justify-content: flex-end;
-  margin-right: var(--header-x-margin);
+  margin-right: var(--header-right-margin);
 }
 body .main-layout > .header .nav.desktop .nav-item .nav-item-text {
   font-family: var(--nav-item-font);
@@ -64,11 +66,13 @@ body .main-layout > .header .nav.desktop .nav-item .nav-item-text {
 body .main-layout > main {
   margin-top: var(--header-height);
   height: calc(100vh - var(--header-height) - var(--footer-height));
-  border: 1px solid cyan;
+  display: flex;
+  justify-content: center;
 }
 body .main-layout > main .wrap {
   width: 50vw;
   height: 50vh;
+  border: 1px solid white;
 }
 body .main-layout > footer {
   border: 1px solid pink;
@@ -79,12 +83,12 @@ body .main-layout > footer {
 body .logo-container.corner {
   width: var(--logo-corner-width);
   height: var(--logo-corner-height);
-  margin-left: var(--header-x-margin);
+  margin-left: var(--header-left-margin);
 }
 body .logo-container.corner .logo-image.corner {
   width: var(--logo-corner-width);
   height: var(--logo-corner-height);
-  margin-left: var(--header-x-margin);
+  margin-left: var(--header-left-margin);
 }
 
 /*# sourceMappingURL=layout-main.css.map */

@@ -34,8 +34,9 @@ const DefaultTheme = {
     '--header-height': '10vh',
     '--footer-height': '8vh',
 
-    '--header-logo-shrink': '2vh',
-    '--header-x-margin': '1ch',
+    '--header-logo-shrink': '1.5vh',
+    '--header-left-margin': '1ch',
+    '--header-right-margin': '1ch',
 
     '--nav-item-font': '--font-family-2',
     '--nav-item-font-size': '3ch',
