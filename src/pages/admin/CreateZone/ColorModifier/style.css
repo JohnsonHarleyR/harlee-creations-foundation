@@ -6,6 +6,10 @@
   background-color: #fff;
 }
 
+textarea {
+  white-space: pre-wrap;
+}
+
 .black-white-span {
   font-size: smaller;
   margin-top: -15px;

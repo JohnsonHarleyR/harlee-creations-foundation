@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import Wrap from '../../../common/components/layout/Wrap';
 import ColorModifier from "./ColorModifier";
@@ -9,6 +9,8 @@ import { modifyThemeColors } from "../../../common/components/layout/MainLayout/
 const CreateZone = ({
     modifyThemeColors,
 }) => {
+    
+    const resultTextRef = useRef();
     
     const [primaryColors, setPrimaryColors] = useState({
         pure: null,
@@ -28,6 +30,39 @@ const CreateZone = ({
         shade: null,
         tone: null,
     });
+    
+    const getColorCodesForTheme = () => {
+        let all = [
+            {
+                category: ColorCategory.PRIMARY,
+                colors: primaryColors,
+            },
+                        {
+                category: ColorCategory.SECONDARY,
+                colors: secondaryColors,
+            },
+                        {
+                category: ColorCategory.ACCENT,
+                colors: accentColors,
+            },
+        ];
+        
+        let result = [];
+        all.forEach(c => {
+            for (var prop in c.colors) {
+                let line = `'--${c.category}-${prop}': '${c.colors[prop]}',\n`;
+                result.push(line);
+            }
+            result.push('\n');
+        });
+        
+        let together = '';
+        result.forEach(r => {
+            together += r;
+        });
+        
+        resultTextRef.current.value = together;
+    }
     
     
     const modifyThemeForColors = (colorCategory) => {
@@ -51,6 +86,8 @@ const CreateZone = ({
       <ColorModifier colorCategory={ColorCategory.PRIMARY} modifyColors={modifyThemeForColors} setColors={setPrimaryColors} />
       <ColorModifier colorCategory={ColorCategory.SECONDARY} modifyColors={modifyThemeForColors} setColors={setSecondaryColors} />
       <ColorModifier colorCategory={ColorCategory.ACCENT} modifyColors={modifyThemeForColors} setColors={setAccentColors} />
+        <button onClick={getColorCodesForTheme}>Get Code</button>
+        <textarea ref={resultTextRef} />
     </Wrap>
   );
 }
