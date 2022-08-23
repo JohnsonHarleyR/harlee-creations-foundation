@@ -4,13 +4,26 @@ import { ThemeName } from "../../../../constants/theme";
 
 const DefaultTheme = {
   logoProps: {
-    cornerLogoTextColor: '--primary-100',
-    cornerLogoIconColor: '--secondary-300',
-    mainLogoTextColor: '--secondary-100',
-    mainLogoIconColor: '--primary-300',
+    cornerLogoTextColor: '--accent-tint',
+    cornerLogoIconColor: '--primary-pure',
+    mainLogoTextColor: '--accent-tint',
+    mainLogoIconColor: '--primary-pure',
   },
   cssProps: {
-    '--primary-100': '#F4F8F9',
+    '--primary-pure': 'hsl(49, 100%, 50%)',
+    '--primary-tint': 'hsl(49, 100%, 50%)',
+    '--primary-shade': 'hsl(49, 100%, 25%)',
+    '--primary-tone': 'hsl(49, 100%, 50%)',
+    
+    '--secondary-pure': 'hsl(196, 100%, 50%)',
+    '--secondary-tint': 'hsl(196, 100%, 75%)',
+    '--secondary-shade': 'hsl(196, 100%, 33%)',
+    '--secondary-tone': 'hsl(196, 51%, 50%)',
+    
+    '--accent-pure': 'hsl(202, 0%, 50%)',
+    '--accent-tint': 'hsl(202, 0%, 100%)',
+    '--accent-shade': 'hsl(202, 0%, 0%)',
+    '--accent-tone': 'hsl(202, 32%, 50%)',
       
     '--primary-100': '#F4F8F9',
     '--primary-200': '#A9D1E3',
@@ -24,9 +37,9 @@ const DefaultTheme = {
     '--secondary-400': '#FFBC37',
     '--secondary-500': '#E29700',
 
-    '--font-color-1': '#FFF',
-    '--font-color-2': '#000',
-    '--font-color-3': '--primary-400',
+    '--font-color-1': '--accent-tint',
+    '--font-color-2': '--accent-tint',
+    '--font-color-3': '--secondary-tone',
 
     '--font-family-1': 'Impact',
     '--font-family-2': 'Courier New',
@@ -45,9 +58,9 @@ const DefaultTheme = {
     '--nav-item-color': '--font-color-1',
     '--nav-item-padding-left': '2ch',
 
-    '--bg-header-color': '--primary-400',
-    '--bg-primary-color': '--secondary-300',
-    '--bg-secondary-color': '--secondary-300',
+    '--bg-header-color': '--secondary-tone',
+    '--bg-primary-color': '--primary-pure',
+    '--bg-secondary-color': '--primary-pure',
   },
   
 };

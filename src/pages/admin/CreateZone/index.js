@@ -8,7 +8,19 @@ const CreateZone = ({
 
 }) => {
     
-    const [colors, setColors] = useState({
+    const [primaryColors, setPrimaryColors] = useState({
+        pure: null,
+        tint: null,
+        shade: null,
+        tone: null,
+    });
+    const [secondaryColors, setSecondaryColors] = useState({
+        pure: null,
+        tint: null,
+        shade: null,
+        tone: null,
+    });
+    const [accentColors, setAccentColors] = useState({
         pure: null,
         tint: null,
         shade: null,
@@ -18,7 +30,9 @@ const CreateZone = ({
 
   return (
     <Wrap>
-      <ColorModifier paletteName={"Primary"} setColors={setColors} />
+      <ColorModifier paletteName={"Primary"} setColors={setPrimaryColors} />
+      <ColorModifier paletteName={"Secondary"} setColors={setSecondaryColors} />
+      <ColorModifier paletteName={"Accent"} setColors={setAccentColors} />
     </Wrap>
   );
 }

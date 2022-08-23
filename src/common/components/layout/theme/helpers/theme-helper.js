@@ -38,13 +38,24 @@ export const implementTheme = (themeName, changeProperties) => {
     let value = cssProps[prop] !== null
       ? cssProps[prop]
       : getDefaultValueForProperty(prop);
+      
+    let isVarName;
+    do {
+        
+        isVarName = isVariableName(value);
+        
+        // If a value happens to be another CSS root variable name rather than
+        // an actual value, that means to set that root value to another value
+        // inside the theme. (I.e. the one with the root variable name.)
+        value = !isVarName
+        ? value
+        : cssProps[value];
+        
+        console.log(`isVarName? `, isVarName);
+        
+    } while (isVarName);
 
-    // If a value happens to be another CSS root variable name rather than
-    // an actual value, that means to set that root value to another value
-    // inside the theme. (I.e. the one with the root variable name.)
-    value = !isVariableName(value)
-      ? value
-      : cssProps[value];
+    
 
     // set the property - this should change css values in the main layout
     if (value !== undefined) {
