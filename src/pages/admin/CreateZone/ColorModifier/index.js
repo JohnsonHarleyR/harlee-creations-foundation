@@ -11,8 +11,7 @@ const ColorModifier = ({paletteName, setColors}) => {
     const [shadeColor, setShadeColor] = useState();
     const [toneColor, setToneColor] = useState();
     
-    const [isFreeMode, setIsFreeMode] = useState(false);
-    const [freeModeValues, setFreeModeValues] = useState({h: hue, s: 100, l: 50});
+    const [isBlackOrWhite, setIsBlackOrWhite] = useState(false);
     
     useEffect(() => {
         if (hue) {
@@ -29,39 +28,44 @@ const ColorModifier = ({paletteName, setColors}) => {
         });
     }, [pureColor, tintColor, shadeColor, toneColor]);
     
+    const changeBW = (evt) => {
+        if (evt.target.checked === true && isBlackOrWhite !== true) {
+            setIsBlackOrWhite(true);
+        } else if (isBlackOrWhite !== false) {
+            setIsBlackOrWhite(false);
+        }
+    }
+    
     return <div className="modifier-container">
         <h2>{paletteName}</h2>
+        <span className="black-white-span"><input type="checkbox" onChange={changeBW} /> B or W?</span>
         <ColorChoice 
             startingHue={hue}
             labelText="Pure"
             hslChange={HslChange.HUE}
             setColor={setHue}
-            isFreeMode={isFreeMode}
-            freeModeValues={freeModeValues}
+            isBlackOrWhite={isBlackOrWhite}
         />
         <ColorChoice 
             startingHue={hue}
             labelText="Tint"
             hslChange={HslChange.LIGHTNESS_LIGHT}
             setColor={setTintColor}
-            isFreeMode={isFreeMode}
-            freeModeValues={freeModeValues}
+            isBlackOrWhite={isBlackOrWhite}
         />
         <ColorChoice 
             startingHue={hue}
             labelText="Shade"
             hslChange={HslChange.LIGHTNESS_DARK}
             setColor={setShadeColor}
-            isFreeMode={isFreeMode}
-            freeModeValues={freeModeValues}
+            isBlackOrWhite={isBlackOrWhite}
         />
         <ColorChoice 
             startingHue={hue}
             labelText="Tone"
             hslChange={HslChange.SATURATION}
             setColor={setToneColor}
-            isFreeMode={isFreeMode}
-            freeModeValues={freeModeValues}
+            isBlackOrWhite={isBlackOrWhite}
         />
     </div>
 }

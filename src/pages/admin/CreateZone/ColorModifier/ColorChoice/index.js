@@ -7,8 +7,7 @@ const ColorChoice = ({
     labelText,
     hslChange,
     setColor,
-    isFreeMode,
-    freeModeValues,
+    isBlackOrWhite,
 }) => {
     
     
@@ -23,13 +22,17 @@ const ColorChoice = ({
     
     useEffect(() => {
         let newValue = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-        console.log('setting hsl value');
+        //console.log('setting hsl value');
         setHslValue(newValue);
     }, [hue, saturation, lightness]);
     
     useEffect(() => {
+        setBlackOrWhiteValues();
+    }, [isBlackOrWhite]);
+    
+    useEffect(() => {
         if (hue !== startingHue) {
-            console.log('changing hue');
+            //console.log('changing hue');
             setHue(startingHue);
         }
     }, [startingHue]);
@@ -52,7 +55,7 @@ const ColorChoice = ({
             case HslChange.HUE:
                 setValue(startingHue);
                 setHue(startingHue);
-                setSaturation(100);
+                //setSaturation(100);
                 setLightness(50);
                 setValueChangeDisplay(
                     <input 
@@ -67,7 +70,7 @@ const ColorChoice = ({
             case HslChange.SATURATION:
                 setValue(50);
                 setHue(startingHue);
-                setSaturation(50);
+                //setSaturation(50);
                 setLightness(50);
                 setValueChangeDisplay(
                     <input
@@ -82,7 +85,7 @@ const ColorChoice = ({
             case HslChange.LIGHTNESS_LIGHT:
                 setValue(75);
                 setHue(startingHue);
-                setSaturation(100);
+                //setSaturation(100);
                 setLightness(75);
                 setValueChangeDisplay(
                     <input
@@ -97,7 +100,7 @@ const ColorChoice = ({
             case HslChange.LIGHTNESS_DARK:
                 setValue(25);
                 setHue(startingHue);
-                setSaturation(100);
+                //setSaturation(100);
                 setLightness(25);
                 setValueChangeDisplay(
                     <input
@@ -115,7 +118,7 @@ const ColorChoice = ({
     useEffect(() => {
         if (value && valueChangeDisplay) {
                     sliderRef.current.value = value;
-                    console.log(value);
+                    //console.log(value);
         }
     }, [value]);
     
@@ -133,6 +136,22 @@ const ColorChoice = ({
             case HslChange.LIGHTNESS_DARK:
                 setLightness(sliderRef.current.value);
                 break;
+        }
+    }
+    
+    const setBlackOrWhiteValues = () => {
+        console.log(`is black or white? `, isBlackOrWhite);
+        if (isBlackOrWhite) {
+            setSaturation(0);
+        } else {
+            switch (hslChange) {
+                default:
+                    setSaturation(100);
+                    break;
+                case HslChange.SATURATION:
+                    setSaturation(value);
+                    break;
+            }
         }
     }
     

@@ -5,6 +5,11 @@
   background-color: #fff;
 }
 
+.black-white-span {
+  font-size: smaller;
+  margin-top: -15px;
+}
+
 .color-choice {
   display: flex;
   align-items: flex-end;
