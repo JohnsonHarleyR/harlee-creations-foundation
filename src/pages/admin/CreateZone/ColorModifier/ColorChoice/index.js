@@ -141,17 +141,10 @@ const ColorChoice = ({
     
     const setBlackOrWhiteValues = () => {
         console.log(`is black or white? `, isBlackOrWhite);
-        if (isBlackOrWhite) {
+        if (isBlackOrWhite && hslChange !== HslChange.SATURATION) {
             setSaturation(0);
-        } else {
-            switch (hslChange) {
-                default:
-                    setSaturation(100);
-                    break;
-                case HslChange.SATURATION:
-                    setSaturation(value);
-                    break;
-            }
+        } else if (hslChange !== HslChange.SATURATION) {
+            setSaturation(100);
         }
     }
     
@@ -162,11 +155,12 @@ const ColorChoice = ({
                 className="color-box"
                 style={{backgroundColor: hslValue}}
             ></div>
-            <span>{labelText}</span>
+            <span className="label">{labelText}</span>
             <div className="slider-div">
                 <span>{value}</span>
                 {valueChangeDisplay}
             </div>
+            <span className="hsl">{hslValue}</span>
             
         </div>
     );

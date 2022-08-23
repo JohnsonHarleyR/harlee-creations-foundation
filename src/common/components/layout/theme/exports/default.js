@@ -11,6 +11,8 @@ const DefaultTheme = {
   },
   cssProps: {
     '--primary-100': '#F4F8F9',
+      
+    '--primary-100': '#F4F8F9',
     '--primary-200': '#A9D1E3',
     '--primary-300': '#69ADCB',
     '--primary-400': '#3C95BB',

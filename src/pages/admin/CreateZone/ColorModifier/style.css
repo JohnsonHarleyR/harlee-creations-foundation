@@ -1,6 +1,7 @@
 .modifier-container {
   display: flex;
   flex-direction: column;
+  padding: 2ch;
 
   background-color: #fff;
 }
@@ -16,10 +17,17 @@
 }
 
 .color-choice > span {
-  font-weight: bold;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 2px;
+}
+
+.color-choice > span.label {
+  font-weight: bold;
+}
+
+.color-choice > span.hsl {
+  font-size: 1.5ch;
 }
 
 .color-box {
