@@ -6,6 +6,7 @@ import {
 import ComingSoon from './common/components/pages/ComingSoon';
 import Admin from "./pages/admin/Admin";
 import LayoutAssist from "./pages/admin/LayoutAssist";
+import CreateZone from "./pages/admin/CreateZone";
 
 function App() {
 
@@ -31,6 +32,14 @@ function App() {
           element={
             <Admin navigateToHome={navigateToHome}>
               <LayoutAssist />
+            </Admin>
+          }
+        />
+        <Route 
+          path="/admin/create-zone"
+          element={
+            <Admin navigateToHome={navigateToHome}>
+              <CreateZone />
             </Admin>
           }
         />

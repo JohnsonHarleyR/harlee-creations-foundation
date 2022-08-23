@@ -1,0 +1,35 @@
+.modifier-container {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #fff;
+}
+
+.color-choice {
+  display: flex;
+  align-items: flex-end;
+}
+
+.color-choice > span {
+  font-weight: bold;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 2px;
+}
+
+.color-box {
+  width: 100px;
+  height: 20px;
+}
+
+.slider-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.slider-div > span {
+  font-size: small;
+  margin-bottom: -4px;
+}

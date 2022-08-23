@@ -1,0 +1,9 @@
+
+
+export const HslChange = {
+    HUE: 'HUE',
+    HUE_FREE_MODE: 'HUE_FREE_MODE',
+    SATURATION: 'SATURATION',
+    LIGHTNESS_LIGHT: 'LIGHTNESS_LIGHT',
+    LIGHTNESS_DARK: 'LIGHTNESS_DARK',
+}

@@ -1,21 +1,40 @@
-@import '../css/fonts.css';
+@import "../css/fonts.css";
 :root {
+  --primary-pure: #fff;
+  --primary-tint: #fff;
+  --primary-shade: #fff;
+  --primary-tone: #fff;
+
+  --secondary-pure: #fff;
+  --secondary-tint: #fff;
+  --secondary-shade: #fff;
+  --secondary-tone: #fff;
+
+  --accent-pure: #fff;
+  --accent-tint: #fff;
+  --accent-shade: #fff;
+  --accent-tone: #fff;
+
   --nav-item-font: "courier new";
   --nav-item-font-size: 5ch;
   --nav-item-color: "red";
-  --nav-item-padding-left: .5ch;
+  --nav-item-padding-left: 0.5ch;
   --header-height: 5vh;
   --footer-height: 8vh;
   --header-logo-shrink: 4vh;
   --logo-corner-height: var(--header-height);
-  --logo-corner-width: calc(607 * var(--logo-corner-height) / 227 - var(--header-logo-shrink));
+  --logo-corner-width: calc(
+    607 * var(--logo-corner-height) / 227 - var(--header-logo-shrink)
+  );
   --header-left-margin: 4ch;
   --header-right-margin: 4ch;
+
   --bg-primary-color: #000;
   --bg-secondary-color: #000;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
