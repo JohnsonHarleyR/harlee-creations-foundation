@@ -39,21 +39,30 @@ export const implementTheme = (themeName, changeProperties) => {
       ? cssProps[prop]
       : getDefaultValueForProperty(prop);
       
-    let isVarName;
-    do {
-        
-        isVarName = isVariableName(value);
         
         // If a value happens to be another CSS root variable name rather than
         // an actual value, that means to set that root value to another value
         // inside the theme. (I.e. the one with the root variable name.)
-        value = !isVarName
+        value = !isVariableName(value)
         ? value
-        : cssProps[value];
+        : `var(${value})`;
+
+      
+  //  let isVarName;
+  //  do {
         
-        console.log(`isVarName? `, isVarName);
+    //    isVarName = isVariableName(value);
         
-    } while (isVarName);
+        // If a value happens to be another CSS root variable name rather than
+        // an actual value, that means to set that root value to another value
+        // inside the theme. (I.e. the one with the root variable name.)
+    //    value = isVarName !== true
+    //    ? value
+      //  : cssProps[value];
+        
+     //  console.log(`isVarName? `, isVarName);
+        
+ //   } while (isVarName);
 
     
 

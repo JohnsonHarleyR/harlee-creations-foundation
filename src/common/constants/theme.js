@@ -1,5 +1,17 @@
 import DefaultTheme from "../components/layout/theme/exports/default"
 
+export const ColorCategory = {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+    ACCENT: 'accent',
+}
+
+export const ColorVariation = {
+    PURE: 'pure',
+    TINT: 'tint',
+    SHADE: 'shade',
+    TONE: 'tone',
+}
 
 export const ThemeName = {
   DEFAULT: 'DEFAULT',
@@ -12,25 +24,28 @@ export const ThemeInfo = {
 }
 
 export const ThemePropName = {
-  '--primary-100': 'primary100',
-  '--primary-200': 'primary200',
-  '--primary-300': 'primary300',
-  '--primary-400': 'primary400',
-  '--primary-500': 'primary500',
-
-  '--secondary-100': 'secondary100',
-  '--secondary-200': 'secondary200',
-  '--secondary-300': 'secondary300',
-  '--secondary-400': 'secondary400',
-  '--secondary-500': 'secondary500',
+    '--primary-pure': 'primaryPure',
+    '--primary-tint': 'primaryTint',
+    '--primary-shade': 'primaryShade',
+    '--primary-tone': 'primaryTone',
+    
+    '--secondary-pure': 'secondaryPure',
+    '--secondary-tint': 'secondaryTint',
+    '--secondary-shade': 'secondaryShade',
+    '--secondary-tone': 'secondaryTone',
+    
+    '--accent-pure': 'accentPure',
+    '--accent-tint': 'accentTint',
+    '--accent-shade': 'accentShade',
+    '--accent-tone': 'accentTone',
 
   '--font-color-1': 'fontColor1',
   '--font-color-2': 'fontColor2',
   '--font-color-3': 'fontColor3',
 
   '--font-family-1': 'fontFamily1',
-  '--font-family-2': 'fontFamily1',
-  '--font-family-3': 'fontFamily1',
+  '--font-family-2': 'fontFamily2',
+  '--font-family-3': 'fontFamily3',
 
   '--header-height': 'headerHeight',
   '--footer-height': 'footerHeight',

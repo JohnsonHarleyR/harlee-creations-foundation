@@ -24,18 +24,6 @@ const DefaultTheme = {
     '--accent-tint': 'hsl(202, 0%, 100%)',
     '--accent-shade': 'hsl(202, 0%, 0%)',
     '--accent-tone': 'hsl(202, 32%, 50%)',
-      
-    '--primary-100': '#F4F8F9',
-    '--primary-200': '#A9D1E3',
-    '--primary-300': '#69ADCB',
-    '--primary-400': '#3C95BB',
-    '--primary-500': '#0989C0',
-
-    '--secondary-100': '#FFFDFA',
-    '--secondary-200': '#FFE6B3',
-    '--secondary-300': '#FFCF70',
-    '--secondary-400': '#FFBC37',
-    '--secondary-500': '#E29700',
 
     '--font-color-1': '--accent-tint',
     '--font-color-2': '--accent-tint',

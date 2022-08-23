@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import ColorChoice from "./ColorChoice";
 import {HslChange} from "./constants.js";
+import {ColorCategory} from "../../../../common/constants/theme.js";
 
-const ColorModifier = ({paletteName, setColors}) => {
+const ColorModifier = ({colorCategory, setColors, modifyColors}) => {
+    
+    const [paletteName, setPaletteName] = useState();
     
     const [hue, setHue] = useState(127);
     const [pureColor, setPureColor] = useState();
@@ -12,6 +15,24 @@ const ColorModifier = ({paletteName, setColors}) => {
     const [toneColor, setToneColor] = useState();
     
     const [isBlackOrWhite, setIsBlackOrWhite] = useState(false);
+    
+    useEffect(() => {
+        console.log('color category: ', colorCategory);
+        switch (colorCategory) {
+            default:
+                setPaletteName("Error");
+                break;
+            case ColorCategory.PRIMARY:
+                setPaletteName("Primary");
+                break;
+            case ColorCategory.SECONDARY:
+                setPaletteName("Secondary");
+                break;
+            case ColorCategory.ACCENT:
+                setPaletteName("Accent");
+                break;
+        }
+    }, [colorCategory]);
     
     useEffect(() => {
         if (hue) {
@@ -34,6 +55,10 @@ const ColorModifier = ({paletteName, setColors}) => {
         } else if (isBlackOrWhite !== false) {
             setIsBlackOrWhite(false);
         }
+    }
+    
+    const modify = () => {
+        modifyColors(colorCategory);
     }
     
     return <div className="modifier-container">
@@ -67,6 +92,7 @@ const ColorModifier = ({paletteName, setColors}) => {
             setColor={setToneColor}
             isBlackOrWhite={isBlackOrWhite}
         />
+        <button onClick={modify}>Change Colors</button>
     </div>
 }
 
