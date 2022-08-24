@@ -11,6 +11,7 @@ export const ColorVariation = {
     TINT: 'tint',
     SHADE: 'shade',
     TONE: 'tone',
+    MIX: 'mix',
 }
 
 export const ThemeName = {

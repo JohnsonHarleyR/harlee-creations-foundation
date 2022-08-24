@@ -87,6 +87,7 @@ const CreateZone = ({
       <ColorModifier colorCategory={ColorCategory.SECONDARY} modifyColors={modifyThemeForColors} setColors={setSecondaryColors} />
       <ColorModifier colorCategory={ColorCategory.ACCENT} modifyColors={modifyThemeForColors} setColors={setAccentColors} />
         <button onClick={getColorCodesForTheme}>Get Code</button>
+        <br></br>
         <textarea ref={resultTextRef} />
     </Wrap>
   );

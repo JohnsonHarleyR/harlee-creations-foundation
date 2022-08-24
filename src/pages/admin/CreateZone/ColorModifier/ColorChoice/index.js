@@ -10,15 +10,24 @@ const ColorChoice = ({
     isBlackOrWhite,
 }) => {
     
-    
+    const showTwoSlidersRef = useRef();
     const sliderRef = useRef();
+    const sliderRef2 = useRef();
     const [value, setValue] = useState();
+    const [value2, setValue2] = useState();
     const [valueChangeDisplay, setValueChangeDisplay] = useState(<></>);
+    const [valueChangeDisplay2, setValueChangeDisplay2] = useState(<></>);
     
     const [hue, setHue] = useState(startingHue);
     const [saturation, setSaturation] = useState(100);
     const [lightness, setLightness] = useState(50);
     const [hslValue, setHslValue] = useState('');
+    
+    useEffect(() => {
+        if (hslChange !== HslChange.MIX) {
+            showTwoSlidersRef.current.style.display = "none";
+        }
+    }, []);
     
     useEffect(() => {
         let newValue = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
@@ -38,7 +47,6 @@ const ColorChoice = ({
     }, [startingHue]);
     
     useEffect(() => {
-                    console.log(`hsl value? `, hslValue);
         if (hslValue) {
             console.log(hslValue);
             if (hslChange === HslChange.HUE) {
@@ -112,6 +120,31 @@ const ColorChoice = ({
                         onChange={changeValue}/>
                 );
                 break; 
+            case HslChange.MIX:
+                setValue(50);
+                setValue2(50)
+                setHue(startingHue);
+                setSaturation(50);
+                setLightness(50);
+                setValueChangeDisplay(
+                    <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        className="slider"
+                        ref={sliderRef}
+                        onChange={changeValue}/>
+                );
+                setValueChangeDisplay2(
+                    <input
+                        type="range"
+                        min="0"
+                        max="100"
+                        className="slider"
+                        ref={sliderRef2}
+                        onChange={changeValue2}/>
+                );
+                break; 
         }
     }, []);
     
@@ -121,6 +154,13 @@ const ColorChoice = ({
                     //console.log(value);
         }
     }, [value]);
+    
+    useEffect(() => {
+        if (value2 && valueChangeDisplay2) {
+                    sliderRef2.current.value = value2;
+                    //console.log(value);
+        }
+    }, [value2]);
     
     const changeValue = () => {
         setValue(sliderRef.current.value);
@@ -136,7 +176,15 @@ const ColorChoice = ({
             case HslChange.LIGHTNESS_DARK:
                 setLightness(sliderRef.current.value);
                 break;
+            case HslChange.MIX:
+                setLightness(sliderRef.current.value);
+                break;
         }
+    }
+    
+    const changeValue2 = () => {
+        setValue2(sliderRef2.current.value);
+        setSaturation(sliderRef2.current.value);
     }
     
     const setBlackOrWhiteValues = () => {
@@ -159,6 +207,10 @@ const ColorChoice = ({
             <div className="slider-div">
                 <span>{value}</span>
                 {valueChangeDisplay}
+            </div>
+            <div className="slider-div" ref={showTwoSlidersRef}>
+                <span>{value2}</span>
+                {valueChangeDisplay2}
             </div>
             <span className="hsl">{hslValue}</span>
             

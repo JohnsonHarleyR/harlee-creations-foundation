@@ -13,6 +13,7 @@ const ColorModifier = ({colorCategory, setColors, modifyColors}) => {
     const [tintColor, setTintColor] = useState();
     const [shadeColor, setShadeColor] = useState();
     const [toneColor, setToneColor] = useState();
+    const [mixColor, setMixColor] = useState();
     
     const [isBlackOrWhite, setIsBlackOrWhite] = useState(false);
     
@@ -46,8 +47,9 @@ const ColorModifier = ({colorCategory, setColors, modifyColors}) => {
             tint: tintColor,
             shade: shadeColor,
             tone: toneColor,
+            mix: mixColor,
         });
-    }, [pureColor, tintColor, shadeColor, toneColor]);
+    }, [pureColor, tintColor, shadeColor, toneColor, mixColor]);
     
     const changeBW = (evt) => {
         if (evt.target.checked === true && isBlackOrWhite !== true) {
@@ -90,6 +92,13 @@ const ColorModifier = ({colorCategory, setColors, modifyColors}) => {
             labelText="Tone"
             hslChange={HslChange.SATURATION}
             setColor={setToneColor}
+            isBlackOrWhite={isBlackOrWhite}
+        />
+        <ColorChoice 
+            startingHue={hue}
+            labelText="Mix"
+            hslChange={HslChange.MIX}
+            setColor={setMixColor}
             isBlackOrWhite={isBlackOrWhite}
         />
         <button onClick={modify}>Change Colors</button>

@@ -1,3 +1,7 @@
+.all-modifiers {
+  background-color: #fff;
+}
+
 .modifier-container {
   display: flex;
   flex-direction: column;
@@ -8,6 +12,8 @@
 
 textarea {
   white-space: pre-wrap;
+  width: 60%;
+  height: 30%;
 }
 
 .black-white-span {
