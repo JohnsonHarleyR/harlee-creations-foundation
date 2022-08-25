@@ -24,6 +24,12 @@ export const ThemePropName = {
   '--secondary-400': 'secondary400',
   '--secondary-500': 'secondary500',
 
+  '--tertiary-100': 'tertiary100',
+  '--tertiary-200': 'tertiary200',
+  '--tertiary-300': 'tertiary300',
+  '--tertiary-400': 'tertiary400',
+  '--tertiary-500': 'tertiary500',
+
   '--font-color-1': 'fontColor1',
   '--font-color-2': 'fontColor2',
   '--font-color-3': 'fontColor3',
@@ -44,7 +50,13 @@ export const ThemePropName = {
   '--nav-item-color': 'navItemColor',
   '--nav-item-padding-left': 'navItemPaddingLeft',
 
+  '--main-area-width': 'mainAreaWidth',
+
   '--bg-header-color': 'bgHeaderColor',
   '--bg-primary-color': 'bgPrimaryColor',
   '--bg-secondary-color': 'bgSecondaryColor',
+  '--bg-wrap-color': 'bgWrapColor',
+
+  '--wrap-border-radius': 'wrapBorderRadius',
+  '--wrap-border-color': 'wrapBorderColor',
 }

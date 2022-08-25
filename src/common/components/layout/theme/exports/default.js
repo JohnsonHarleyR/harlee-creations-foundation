@@ -22,6 +22,12 @@ const DefaultTheme = {
     '--secondary-400': '#FFBC37',
     '--secondary-500': '#E29700',
 
+    '--tertiary-100': '#FDDCE0',
+    '--tertiary-200': '#FA95A1',
+    '--tertiary-300': '#F55E70',
+    '--tertiary-400': '#E42B41',
+    '--tertiary-500': '#AF0519',
+
     '--font-color-1': '#FFF',
     '--font-color-2': '#000',
     '--font-color-3': '--primary-400',
@@ -32,7 +38,7 @@ const DefaultTheme = {
 
 
     '--header-height': '10vh',
-    '--footer-height': '8vh',
+    '--footer-height': '10vh',
 
     '--header-logo-shrink': '1.5vh',
     '--header-left-margin': '1ch',
@@ -45,7 +51,13 @@ const DefaultTheme = {
 
     '--bg-header-color': '--primary-400',
     '--bg-primary-color': '--secondary-300',
-    '--bg-secondary-color': '--secondary-300',
+    '--bg-secondary-color': 'none',
+    '--bg-wrap-color': '--secondary-200',
+
+    '--wrap-border-radius': '1.5ch',
+    '--wrap-border-color': '--primary-100',
+
+    '--main-area-width': '70vw',
   },
   
 };

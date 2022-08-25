@@ -25,10 +25,11 @@ const MainLayout = ({
       <Header>test</Header>
       <main>
         {children}
-      </main>
-      <footer>
+
+        <footer>
     
-      </footer>
+        </footer>
+      </main>
     </div>
   );
 }

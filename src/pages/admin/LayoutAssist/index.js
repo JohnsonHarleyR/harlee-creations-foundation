@@ -1,13 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { changeMainTheme } from '../../../common/components/layout/MainLayout/redux/thunks';
 import Wrap from '../../../common/components/layout/Wrap';
 import { ThemeName } from '../../../common/constants/theme';
+import ExampleLayoutA from './subcomponents/example-layouts/ExampleLayoutA';
+import ColorModifier from './subcomponents/ColorModifier';
+import { ColorCategory } from './subcomponents/ColorModifier/constants';
 
 const LayoutAssist = ({
   isAdmin,
   changeMainTheme,
 }) => {
+
+  const [primaryColors, setPrimaryColors] = useState({
+    pure: null,
+    tint: null,
+    shade: null,
+    tone: null,
+    mix: null,
+});
 
   useEffect(() => {
     if (isAdmin) {
@@ -16,9 +27,9 @@ const LayoutAssist = ({
   }, []);
 
   return (
-    <Wrap>
-      Layout Assist
-    </Wrap>
+    <ExampleLayoutA>
+      <ColorModifier colorCategory={ColorCategory.PRIMARY} setColors={setPrimaryColors} />
+    </ExampleLayoutA>
   );
 }
 

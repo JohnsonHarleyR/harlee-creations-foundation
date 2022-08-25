@@ -16,8 +16,16 @@
   --header-left-margin: 4ch;
   --header-right-margin: 4ch;
 
+
   --bg-primary-color: #000;
   --bg-secondary-color: #000;
+  --bg-wrap-color: none;
+
+  --main-area-width: 50vw;
+  --main-area-bg-color: none;
+
+  --wrap-border-radius: 10px;
+  --wrap-border-color: #000;
 }
 
 html, body {
@@ -81,26 +89,84 @@ body {
     }
 
     > main {
+      margin: 0 auto;
       margin-top: var(--header-height);
-      height: calc(100vh - var(--header-height) - var(--footer-height));
-      
+      min-height: calc(100vh - var(--header-height));
+      width: var(--main-area-width);
+      position: relative;
+      background-color: var(--bg-secondary-color);
+
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      > footer {
+        border: 1px solid cyan;
+        height: var(--footer-height);
+        width: 100%;
+        position: absolute;
+        padding: 0;
+        bottom: 0;
+      }
 
       .wrap {
-        width: 50vw;
-        height: 50vh;
-        border: 1px solid white;
-
+        width: 100%;
+        height: 100%;
+        background-color: var(--bg-wrap-color);
+        border-radius: var(--wrap-border-radius);
+        border: 1px solid var(--wrap-border-color);
       }
+
+      .grid {
+        display: grid;
+        width: 100%;
+        height: 100%;
+
+        &.example-a {
+          height: 120ch;
+          grid-template-columns: repeat(6, 1fr);
+          grid-template-rows: repeat(10, 1fr);
+          gap: 1.5ch;
+
+          padding-top: 2ch;
+
+          :nth-child(1) {
+            grid-column-start: 3;
+            grid-column-end: span 4;
+            grid-row-start: 1;
+            grid-row-end: span 6;
+          }
+          :nth-child(2) {
+            grid-column-start: 1;
+            grid-column-end: span 2;
+            grid-row-start: 1;
+            grid-row-end: span 2;
+          }
+          :nth-child(3) {
+            grid-column-start: 1;
+            grid-column-end: span 2;
+            grid-row-start: 3;
+            grid-row-end: span 7;
+          }
+          :nth-child(4) {
+            grid-column-start: 3;
+            grid-column-end: span 2;
+            grid-row-start: 7;
+            grid-row-end: span 3;
+          }
+          :nth-child(5) {
+            grid-column-start: 5;
+            grid-column-end: span 2;
+            grid-row-start: 7;
+            grid-row-end: span 3;
+          }
+        }
+      }
+
+
     }
 
-    > footer {
-      border: 1px solid pink;
-      height: var(--footer-height);
-      position: relative;
-      bottom: 0;
-    }
+
 
   }
 
