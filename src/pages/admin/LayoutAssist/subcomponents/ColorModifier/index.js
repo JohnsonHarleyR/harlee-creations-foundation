@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import ColorChoice from "./ColorChoice";
-import {ColorCatDesc, HslChange} from "./constants.js";
+import {ColorCatDesc, HslChange, StartingHue} from "./constants.js";
 import { ColorCategory } from "./constants.js";
 
 const ColorModifier = ({colorCategory, setColors}) => {
@@ -9,7 +9,7 @@ const ColorModifier = ({colorCategory, setColors}) => {
     const [paletteName, setPaletteName] = useState();
     const [description, setDescription] = useState('test');
     
-    const [hue, setHue] = useState(127);
+    const [hue, setHue] = useState();
     const [pureColor, setPureColor] = useState();
     const [tintColor, setTintColor] = useState();
     const [shadeColor, setShadeColor] = useState();
@@ -17,6 +17,10 @@ const ColorModifier = ({colorCategory, setColors}) => {
     const [mixColor, setMixColor] = useState();
     
     const [isBlackOrWhite, setIsBlackOrWhite] = useState(false);
+
+    useEffect(() => {
+        setHue(StartingHue[colorCategory]);
+    }, []);
     
     useEffect(() => {
         console.log('color category: ', colorCategory);
@@ -63,13 +67,20 @@ const ColorModifier = ({colorCategory, setColors}) => {
     }, [hue]);
     
     useEffect(() => {
-        setColors({
-            pure: pureColor,
-            tint: tintColor,
-            shade: shadeColor,
-            tone: toneColor,
-            mix: mixColor,
-        });
+        // setColors({
+        //     pure: pureColor,
+        //     tint: tintColor,
+        //     shade: shadeColor,
+        //     tone: toneColor,
+        //     mix: mixColor,
+        // });
+        setColors([
+          pureColor,
+          tintColor,
+          shadeColor,
+          toneColor,
+          mixColor,
+        ]);
     }, [pureColor, tintColor, shadeColor, toneColor, mixColor]);
     
     const changeBW = (evt) => {

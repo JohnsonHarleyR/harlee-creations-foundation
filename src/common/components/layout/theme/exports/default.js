@@ -16,7 +16,7 @@ const DefaultTheme = {
     '--primary-400': '#3C95BB',
     '--primary-500': '#0989C0',
 
-    '--secondary-100': '#FFFDFA',
+    '--secondary-100': '#FCE6B9',
     '--secondary-200': '#FFE6B3',
     '--secondary-300': '#FFCF70',
     '--secondary-400': '#FFBC37',
@@ -49,10 +49,14 @@ const DefaultTheme = {
     '--nav-item-color': '--font-color-1',
     '--nav-item-padding-left': '2ch',
 
-    '--bg-header-color': '--primary-400',
-    '--bg-primary-color': '--secondary-300',
-    '--bg-secondary-color': 'none',
-    '--bg-wrap-color': '--secondary-200',
+    // '--bg-header-color': '--primary-400',
+    '--bg-header-color': 'black',
+    // '--bg-primary-color': '--secondary-300',
+    '--bg-primary-color': '#9A9A9A',
+    // '--bg-secondary-color': 'none',
+    '--bg-secondary-color': '#CBCBCB',
+    // '--bg-wrap-color': '--secondary-100',
+    '--bg-wrap-color': 'white',
 
     '--wrap-border-radius': '1.5ch',
     '--wrap-border-color': '--primary-100',

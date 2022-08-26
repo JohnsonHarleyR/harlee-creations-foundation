@@ -2,7 +2,8 @@ import Wrap from '../../../../../../common/components/layout/Wrap';
 
 
 const ExampleLayoutA = ({
-  children
+  children,
+  content3,
 }) => {
   
   return (
@@ -11,7 +12,7 @@ const ExampleLayoutA = ({
         {children}
       </Wrap>
       <Wrap></Wrap>
-      <Wrap></Wrap>
+      <Wrap>{content3}</Wrap>
       <Wrap></Wrap>
       <Wrap></Wrap>
     </div>

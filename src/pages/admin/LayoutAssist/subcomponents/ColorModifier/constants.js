@@ -35,3 +35,13 @@ export const ColorVariation = {
   TONE: 'tone',
   MIX: 'mix',
 }
+
+export const StartingHue = {
+  primary: 0,
+  secondary: 50,
+  accent: 100,
+  error: 200,
+  warning: 250,
+  info: 300,
+  success: 250,
+}
